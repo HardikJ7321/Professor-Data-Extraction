@@ -18,13 +18,12 @@ prof_depts = []
 prof_email = []
 
 
-elements = 'defghijklmnopqrstuvwxyz'
+elements = 'pqrstvwx'
 for ele in elements:
     print(ele)
     driver = webdriver.Chrome(chrome_driver_path, options=chrome_options)
     driver.get('https://keck.usc.edu/faculty-search/')
-    time.sleep(20)
-    time.sleep(30)
+    time.sleep(15)
     tab_link = '#'+ele+'.tab-link'
     req_class_name = '.preson.' + ele.upper()
     tab_link_ele = driver.find_element_by_css_selector(tab_link)
@@ -35,10 +34,11 @@ for ele in elements:
         link = content.find_element_by_css_selector('a').get_attribute('href')
         new_driver = webdriver.Chrome(chrome_driver_path, options=chrome_options)
         new_driver.get(link)
+        new_driver.get(link)
         #response = requests.get(link)
         #soup = BeautifulSoup(response.content, "html.parser")
         #print('XXXXXXXXXXX',soup.prettify())
-        time.sleep(10)
+        time.sleep(20)
         name = new_driver.find_element_by_css_selector('.fm-person-preferred-name').text
         #name = soup.find('div',{'class':'fm-person-preferred-name'}).text
         if ',' in name:
