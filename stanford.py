@@ -18,7 +18,7 @@ prof_depts = []
 prof_email = []
 
 
-for p in range(13,42):
+for p in range(1,42):
     print(p)
     driver = webdriver.Chrome(chrome_driver_path, options=chrome_options)
     driver.get('https://med.stanford.edu/profiles/browse?p=' + str(p) + '&affiliations=capFaculty&ps=100')
@@ -44,4 +44,4 @@ for p in range(13,42):
         new_driver.close()
     driver.close()
     df = pd.DataFrame({'Name': prof_names, 'Department': prof_depts, 'Email':prof_email})
-    df.to_excel('harvard'+str(p)+'.xlsx',index=False)
+    df.to_excel('stanford'+str(p)+'.xlsx',index=False)
