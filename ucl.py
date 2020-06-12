@@ -17,9 +17,9 @@ prof_email = []
 
 driver = webdriver.Chrome(chrome_driver_path, options=chrome_options)
 
-page = 14001
+page = 1
 
-while page<=15000:
+while page<=29872:
     print(page)
     
     url = 'https://search2.ucl.ac.uk/s/search.html?query=&collection=website-meta&profile=_directory&tab=directory&start_rank='+str(page)
@@ -52,4 +52,4 @@ while page<=15000:
 
 driver.close()
 df = pd.DataFrame({'Name': prof_names, 'Department': prof_depts, 'Email':prof_email})
-df.to_excel('14k-15k.xlsx',index=False)
+df.to_excel('ucl.xlsx',index=False)
