@@ -17,12 +17,12 @@ prof_names = []
 prof_depts = []
 prof_email = []
 
-
-elements = 'pqrstvwx'
+link_to_be_scraped = 'https://keck.usc.edu/faculty-search/'
+elements = 'abcdefghijklmnopqrstuvwxyz'  ####since the data is based on starting letter of names
 for ele in elements:
     print(ele)
     driver = webdriver.Chrome(chrome_driver_path, options=chrome_options)
-    driver.get('https://keck.usc.edu/faculty-search/')
+    driver.get(link_to_be_scraped)
     time.sleep(15)
     tab_link = '#'+ele+'.tab-link'
     req_class_name = '.preson.' + ele.upper()
